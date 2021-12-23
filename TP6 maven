@@ -1,0 +1,95 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cigma.pfe.controllers;
+
+import cigma.pfe.services.ClientService;
+import cigma.pfe.models.Client;
+import cigma.pfe.services.ClientServiceImpl;
+
+public class ClientController {
+    
+    ClientService clientService = new ClientServiceImpl();
+public Client save(Client c ){
+System.out.println("ClientController level...");
+return clientService.save(c);
+}
+    
+}
+
+
+
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cigma.pfe.models;
+
+/**
+ *
+ * @author AIMANE
+ */
+public class Client {
+    
+public long id;
+public String name;
+public Client(long id, String name) {
+this.id = id;
+this.name = name;
+}
+public Client() {
+}
+}
+
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cigma.pfe.repositories;
+
+import cigma.pfe.models.Client;
+public class ClientRepositoryImpl implements ClientRepository {
+    
+    @Override
+public Client save(Client c) {
+System.out.println("DAO Layer : ClientRepositoryImpl Level");
+return null;
+    
+}
+}
+
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cigma.pfe.services;
+
+import cigma.pfe.models.Client;
+import cigma.pfe.repositories.ClientRepository;
+import cigma.pfe.repositories.ClientRepositoryImpl;
+
+public class ClientServiceImpl implements ClientService {
+    
+    ClientRepository clientRepository = new ClientRepositoryImpl();
+@Override
+public Client save(Client c) {
+System.out.println("Service Layer : ClientServiceImpl Level... ");
+return clientRepository.save(c);
+    
+}
+}
+
+
+//Bon Mr je suis bloque sue cette etape pour le creation d une classe qui lance le programme dans le package cigma.pfe 
+ca ne marche pas meme si jai les tries comme tu ma dis ms il reste le meme probleme 
